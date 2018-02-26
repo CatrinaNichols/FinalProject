@@ -1,6 +1,10 @@
 package characterModels;
 
 public class BaseCharacter {
-//This is a test
-	
+	protected int strBase;
+	protected int intBase;
+	protected int dexBase;
+	protected int strMod;
+	protected int intMod;
+	protected int dexMod;
 }
