@@ -28,11 +28,47 @@ public void load(String filePath) {
 }
 
 public void combat() {
-	//Create a monster based on location
-	//Turn taking system until someone is defeated
-	//Use items accordingly
-	//generate the experience gained and update player
+	boolean battle = true;
+	boolean heroTurn = false;
 	
+	if(inPlains) {
+		PlainMonster monster = new PlainMonster();
+	} else if (inCave) {
+		CaveMonster monster = new CaveMonster();
+	} else if (inCastle) {
+		CastleMonster monster = new CastleMonster();
+	}
+	
+	if(hero.getDexMod() > monster.getDexMod()) {
+		heroTurn = true;
+	}
+	
+	do {
+		if(heroTurn) {
+			takeTurn(hero, monster);
+			!heroTurn;
+		} else {
+			takeTurn(monster, hero);
+			!heroTurn;
+		}
+		
+		if(hero.getCurrentHP() == 0) {
+			hero dies
+			battle = false;
+		} else if (monster.getCurrentHP() == 0) {
+			monster dies
+			battle = false;
+		}
+	} while (!battle);
+}
+
+public void takeTurn(BaseCharacter attacker, BaseCharacter defender) {
+	if(attacker.getClass() == Hero) {
+		//add in menu for hero's turn
+	} else {
+		int damage = attacker.attack(defender.getArmor());
+		defender.takeDamage(damage);		
+	}
 }
 
 public void inventoryManagement() {
