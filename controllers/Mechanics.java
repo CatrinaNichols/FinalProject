@@ -1,5 +1,7 @@
 package controllers;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import characterModels.BaseCharacter;
@@ -13,19 +15,18 @@ public class Mechanics {
 	int x = 0;
 	int y = 0;
 
-public void save() {
-	String filePath = "saves\saveFile.ser";
-	//Character location
-	//Character inventory
-	//Story progression
-	
+	public void save() {
+		String filePath = "saves/saveFile.ser";
+		//Character location
+		//Character inventory
+		//Story progression
+		
 
-FileOutputStream fos = new FileOutputStream(filePath);
-ObjectOutputStream oos = new ObjectOutputStream(fos);
-WriteObject wo = new WriteObject(map, inventory, hero, x ,y);
-oos.writeObject(wo);
+		FileOutputStream fos = new FileOutputStream(filePath);
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(map, inventory, hero, x ,y);
 
-}
+	}
 
 	public void load(String filePath) {
 		// Update character location
