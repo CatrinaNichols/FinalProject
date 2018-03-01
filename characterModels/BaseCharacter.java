@@ -7,4 +7,5 @@ public class BaseCharacter {
 	protected int strMod;
 	protected int intMod;
 	protected int dexMod;
+	//hey yo
 }
