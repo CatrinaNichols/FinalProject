@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="GameLayout" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Map">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="mapImage1" fitHeight="401.0" fitWidth="610.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <GridPane fx:id="mapLayout1" alignment="CENTER" gridLinesVisible="true" layoutX="136.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="327.0" prefWidth="370.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="116.0" AnchorPane.topAnchor="0.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fx:id="Character" fitHeight="73.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Users/Alexander/Pictures/MyWallpaper/Batman.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </GridPane>
+            <Label fx:id="Commands1" alignment="CENTER" layoutX="139.0" layoutY="324.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="370.0" style="-fx-background-color: #a1a; -fx-border-color: #000;" text="Character Commands" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="113.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="Map1" alignment="CENTER" layoutX="-2.0" layoutY="101.0" prefHeight="203.0" prefWidth="143.0" style="-fx-background-color: #a1a; -fx-border-color: #000;" text="Map/Enemy Stats" textFill="WHITE" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="101.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="MapName1" alignment="CENTER" layoutX="-2.0" prefHeight="104.0" prefWidth="143.0" style="-fx-background-color: #a1a; -fx-border-color: #000;" text="NPCName/MapName" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Label fx:id="CharacterInfo1" alignment="CENTER" layoutY="304.0" prefHeight="104.0" prefWidth="143.0" style="-fx-background-color: #a1a; -fx-border-color: #000;" text="Character Info" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="Stats1" alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="-1.0" prefHeight="404.0" prefWidth="136.0" style="-fx-background-color: #a1a; -fx-border-color: #000;" text="Stats" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Button alignment="CENTER" layoutX="26.0" layoutY="313.0" mnemonicParsing="false" onAction="#changeScreenButtonPushed" prefHeight="19.0" prefWidth="52.0" style="-fx-background-color: #a1a;" text="Exit" textFill="WHITE" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="26.0">
+               <font>
+                  <Font name="Georgia Bold Italic" size="15.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" layoutX="12.0" layoutY="364.0" mnemonicParsing="false" onAction="#exitApp" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: #a1a;" text="Exit To Desktop" textFill="WHITE">
+               <font>
+                  <Font name="Georgia Bold Italic" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
