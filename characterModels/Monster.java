@@ -7,6 +7,7 @@ public class Monster extends Character{
 	private final MonsterTypes monster;
 	
 	public Monster(MonsterTypes monster, int level) {
+		
 		this.monster = monster;
 	}
 
