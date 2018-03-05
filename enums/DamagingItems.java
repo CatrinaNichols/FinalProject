@@ -1,7 +1,10 @@
 package enums;
 
 public enum DamagingItems {
-
+	KUKRI("Kukri", 20, 30),
+	THROWINGKNIVES("Throwing Knives", 10, 20),
+	POISONBOMB("Poison Bomb", 30, 60),
+	SHRAPNELBOMB("Shrapnel Bomb", 25, 50),
 	MOLOTOV("Molotov", 15, 30);
 
 	private String name;

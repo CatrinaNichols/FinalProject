@@ -1,10 +1,10 @@
 package itemModels;
 
 import enums.HealingItems;
-import interfaces.IConsumable;
+import interfaces.Iconsumable;
 import characterModels.Character;
 
-public class HealingItem extends Item implements IConsumable {
+public class HealingItem extends Item implements Iconsumable {
 
 	private int healPower;
 	private HealingItems type;

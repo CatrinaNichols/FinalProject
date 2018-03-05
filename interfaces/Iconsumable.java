@@ -1,6 +1,6 @@
 package interfaces;
 import characterModels.Character;
-public interface IConsumable {
+public interface Iconsumable {
 	
 	void use(Character c);
 	

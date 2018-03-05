@@ -1,10 +1,10 @@
 package itemModels;
 
-import enums.DamagingItems;
 import characterModels.Character;
-import interfaces.IConsumable;
+import enums.DamagingItems;
+import interfaces.Iconsumable;
 
-public class DamagingItem extends Item  implements IConsumable{
+public class DamagingItem extends Item  implements Iconsumable{
 	
 	private int damagePower;
 	private DamagingItems type;

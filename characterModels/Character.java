@@ -15,18 +15,29 @@ public abstract class Character {
 	protected static Random rng = new Random();
 	protected int level;
 	protected final int maxLevel = 10;
+	protected int xp = 0;
+	// 25 fights = level 10
+	// each level 250 xp needed level 10 = 2500 total xp
+	// average xp = 100 10 50 xp, 10 100 xp, 5 200xp drops
+	protected int xpToNextLevel = 250;
 	
+	public int getXp() {
+		return xp;
+	}
+
 	public Character() {
 		
 	}
+	
+	public abstract void levelUp(int xp);
 	
 	public abstract void takeDamage(int damage);
 	
 	public abstract void heal(int heal, int type);
 	
-	public abstract void attack(Character c);
+	public abstract boolean attack(Character c);
 	
-	public abstract void specialAttack(Character c);
+	public abstract boolean specialAttack(Character c);
 	
 	public abstract int getDodge();
 	
