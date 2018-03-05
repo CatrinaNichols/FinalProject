@@ -119,30 +119,30 @@ public void combat() {
 		}
 	}
 
-//public void inventoryManagement() {
-//	//Give player option to discard loot
-//	//show all loot available
-//	//Equipment of items
-//	
-//	
-//	take in choice of whether to discard, equip, or exit
-//	
-//	if(discard) {
-//		inventory.remove();
-//	}else if(use) {
-//		if(item.instanceOf(Armor)) {
-//			hero.setEquippedArmor(item);
-//		}else if(item.instanceOf(Weapon)) {
-//			hero.setEquippedWeapon(item);
-//		}else if(item.instanceOf(HealingItem)) {
-//			item.use(hero);
-//		}else {
-//		 not available to use
-//	}
-//	}else if(exit) {
-//		back to menu
-//	}
-//}
+public void inventoryManagement() {
+	//Give player option to discard loot
+	//show all loot available
+	//Equipment of items
+	
+	
+	take in choice of whether to discard, equip, or exit
+	
+	if(discard) {
+		inventory.remove();
+	}else if(use) {
+		if(item.instanceOf(Armor)) {
+			hero.setEquippedArmor(item);
+		}else if(item.instanceOf(Weapon)) {
+			hero.setEquippedWeapon(item);
+		}else if(item.instanceOf(HealingItem)) {
+			item.use(hero);
+		}else {
+		 not available to use
+	}
+	}else if(exit) {
+		back to menu
+	}
+}
 
 	public void dropLoot() {
 		// Determine what to drop based on monster
