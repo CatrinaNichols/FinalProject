@@ -13,7 +13,7 @@ public enum Weapons {
 	DAGGER("Dagger", 2, 3, 30),
 	STRAIGHT_SWORD("Straight Sword", 1, 5, 50);
 	
-	
+	 
 	private final String name;
 	private final int baseMinDam;
 	private final int baseMaxDam;

@@ -2,7 +2,7 @@ package enums;
 
 public enum MonsterTypes {
 	PLAINS_GOBLIN_S("Goblin Scout", 12, 0, 0, 3, 9, 7, 10, 50);
-	
+	 
 	private String name;
 	private int baseHp;
 	private int baseDodge;

@@ -5,7 +5,7 @@ public enum HeroClass {
 	WARRIOR("Warrior", 16, 12, 8, 0, 0),
 	RANGER("Ranger", 10, 16, 10, 1, 1),
 	WIZARD("Wizard", 8, 12, 16, 2 , 2);
-	
+	 
 	private String className;
 	private int str;
 	private int dex;
