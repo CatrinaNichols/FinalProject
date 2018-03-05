@@ -16,7 +16,6 @@ public abstract class Character {
 	protected int level;
 	protected final int maxLevel = 10;
 	protected int xp = 0;
-	
 	// 25 fights = level 10
 	// each level 250 xp needed level 10 = 2500 total xp
 	// average xp = 100 10 50 xp, 10 100 xp, 5 200xp drops

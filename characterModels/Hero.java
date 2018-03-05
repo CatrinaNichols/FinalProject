@@ -33,7 +33,6 @@ public class Hero extends Character {
 				default:
 					break;
 				}
-			
 			}
 			this.maxHp = ((baseStr - 8) * 3) + baseDex + baseInt;
 			this.hp = this.maxHp;
