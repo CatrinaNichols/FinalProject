@@ -2,7 +2,7 @@ package characterModels;
 
 import java.util.Random;
 
-public abstract class Character {
+public abstract class BaseCharacter {
 	protected String name;
 	protected int baseStr;
 	protected int baseDex;
@@ -25,8 +25,20 @@ public abstract class Character {
 		return xp;
 	}
 
-	public Character() {
+	public BaseCharacter() {
 		
+	}
+	
+	public int getBaseDex() {
+		return this.baseDex;
+	}
+	
+	public int getHP() {
+		return this.hp;
+	}
+	
+	public int getLevel() {
+		return this.level;
 	}
 	
 	public abstract void levelUp(int xp);
@@ -35,9 +47,9 @@ public abstract class Character {
 	
 	public abstract void heal(int heal, int type);
 	
-	public abstract boolean attack(Character c);
+	public abstract boolean attack(BaseCharacter c);
 	
-	public abstract boolean specialAttack(Character c);
+	public abstract boolean specialAttack(BaseCharacter c);
 	
 	public abstract int getDodge();
 	

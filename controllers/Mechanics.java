@@ -9,14 +9,9 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
-import characterModels.BaseCharacter;
-import characterModels.Hero;
-import characterModels.Monster;
-import itemModels.Armor;
-import itemModels.DamagingItem;
-import itemModels.HealingItem;
-import itemModels.Item;
-import itemModels.Weapon;
+import characterModels.*;
+import itemModels.*;
+import enums.*;
 import saveModel.Save;
 
 public class Mechanics {
@@ -32,13 +27,13 @@ public class Mechanics {
 		String proffession = "warrior";
 		switch (proffession) {
 		case "warrior":
-			hero = new Hero(name, HeroClass.WARRIOR);
+			hero = new Hero(name, HeroClass.WARRIOR, 1);
 			break;
 		case "ranger":
-			hero = new Hero(name, HeroClass.RANGER);
+			hero = new Hero(name, HeroClass.RANGER, 1);
 			break;
 		case "wizard":
-			hero = new Hero(name, HeroClass.WIZARD);
+			hero = new Hero(name, HeroClass.WIZARD, 1);
 			break;
 		}
 
@@ -112,7 +107,7 @@ public class Mechanics {
 			CastleMonster monster = new CastleMonster();
 		}
 
-		if (hero.getDexMod() > monster.getDexMod()) {
+		if (hero.getBaseDex() > monster.getBaseDex()) {
 			heroTurn = true;
 		}
 
@@ -125,9 +120,9 @@ public class Mechanics {
 				heroTurn = true;
 			}
 
-			if (hero.getCurrentHP() == 0) {
+			if (hero.getHP() == 0) {
 				battle = false;
-			} else if (monster.getCurrentHP() == 0) {
+			} else if (monster.getHPHP() == 0) {
 				dropLoot(monster);
 				battle = false;
 			}
@@ -138,8 +133,7 @@ public class Mechanics {
 		if (attacker instanceof Hero) {
 			// add in menu for hero's turn
 		} else {
-			int damage = attacker.attack(defender.getArmor());
-			defender.takeDamage(damage);
+			attacker.attack(defender);
 		}
 	}
 
@@ -178,7 +172,7 @@ public class Mechanics {
 				inventory.add(hp);
 				break;
 			}
-			
+			}
 		}
 	}
 
@@ -189,17 +183,17 @@ public class Mechanics {
 		String message;
 		if (choice.equals("equip")) {
 			if (inventory.get(itemInInventory) instanceof Armor) {
-				hero.setequippedArmor(inventory.get(itemInInventory));
+				hero.setEquippedArmor((Armor)inventory.get(itemInInventory));
 				message = "Armor is equipped";
 			} else if (inventory.get(itemInInventory) instanceof Weapon) {
-				hero.setequippedWeapon(inventory.get(itemInInventory));
+				hero.setEquippedWeapon((Weapon)inventory.get(itemInInventory));
 				message = "Weapon is equipped";
 			} else {
 				message = "That's not an equiptable item";
 			}
 		} else if (choice.equals("use")) {
 			if (inventory.get(itemInInventory) instanceof HealingItem) {
-				hero.heal(inventory.get(itemInInventory).getHealPower(), inventory.get(itemInInventory).type);
+				((HealingItem)inventory.get(itemInInventory)).use(hero);
 			} else if (inventory.get(itemInInventory) instanceof DamagingItem) {
 				message = "You can't damage yourself!";
 			} else {
