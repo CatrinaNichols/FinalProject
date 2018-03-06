@@ -56,6 +56,7 @@ public class Monster extends Character {
 			return true;
 		}
 		return false;
+
 	}
 
 	@Override
