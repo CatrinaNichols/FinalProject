@@ -1,5 +1,5 @@
 package enums;
- 
+
 public enum Armors {
 	ROBES_L("Robe Armor Set", "Light", 2, 10, 15, 40),
 	ROBES_M("Robe Armor Set", "Medium", 0, 15, 25, 40),

@@ -6,7 +6,7 @@ public enum DamagingItems {
 	POISONBOMB("Poison Bomb", 30, 60),
 	SHRAPNELBOMB("Shrapnel Bomb", 25, 50),
 	MOLOTOV("Molotov", 15, 30);
- 
+
 	private String name;
 	private int baseDamage;
 	private int baseValue;

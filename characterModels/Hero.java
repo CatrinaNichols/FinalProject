@@ -11,6 +11,7 @@ public class Hero extends Character {
 	private final HeroClass profession;
 	private Weapon equippedWeapon;
 	private Armor equippedArmor;
+	
 
 	@Override
 	public void levelUp(int xp) {
@@ -102,7 +103,7 @@ public class Hero extends Character {
 
 	@Override
 	public void takeDamage(int damage) {
-		int damageTaken = (damage * equippedArmor.getDamReduction()) / 100;
+		int damageTaken = (damage * (100 - equippedArmor.getDamReduction())) / 100;
 		hp -= damageTaken;
 		// System.out.println(name + " took " + damageTaken + "points of damage!");
 		if (hp <= 0) {

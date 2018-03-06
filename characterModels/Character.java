@@ -55,4 +55,9 @@ public abstract class Character {
 		return name;
 	}
 
+	public int getHp() {
+		return hp;
+	}
+	
+
 }
