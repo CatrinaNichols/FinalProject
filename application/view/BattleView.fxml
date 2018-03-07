@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="battleScreen" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="mapImage1" fitHeight="401.0" fitWidth="610.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label fx:id="Commands1" alignment="CENTER" layoutX="139.0" layoutY="324.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="349.0" style="-fx-background-color: #a1a; -fx-border-color: #000;" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="134.0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="Map1" alignment="CENTER" layoutX="-2.0" layoutY="101.0" prefHeight="203.0" prefWidth="143.0" style="-fx-background-color: #a1a; -fx-border-color: #000;" text="Map/Enemy Stats" textFill="WHITE" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="101.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="MapName1" alignment="CENTER" layoutX="-2.0" prefHeight="104.0" prefWidth="143.0" style="-fx-background-color: #a1a; -fx-border-color: #000;" text="NPCName/MapName" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label fx:id="CharacterInfo1" alignment="CENTER" layoutY="304.0" prefHeight="104.0" prefWidth="143.0" style="-fx-background-color: #a1a; -fx-border-color: #000;" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </Label>
+      <Label fx:id="Stats1" alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="-1.0" prefHeight="404.0" prefWidth="136.0" style="-fx-background-color: #a1a; -fx-border-color: #000;" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" layoutX="16.0" layoutY="335.0" mnemonicParsing="false" onAction="#changeScreenButtonPushed" prefHeight="29.0" prefWidth="112.0" style="-fx-background-color: #a1a;" text="Exit To Menu" textFill="WHITE" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="16.0">
+         <font>
+            <Font name="Georgia Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" layoutX="12.0" layoutY="361.0" mnemonicParsing="false" onAction="#exitApp" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: #a1a;" text="Exit To Desktop" textFill="WHITE" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="12.0">
+         <font>
+            <Font name="Georgia Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <TextField fx:id="CharacterInfo" alignment="CENTER" layoutX="4.0" layoutY="309.0" prefHeight="25.0" prefWidth="136.0" promptText="Character Information" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="4.0" />
+      <ImageView fitHeight="163.0" fitWidth="92.0" layoutX="151.0" layoutY="88.0" pickOnBounds="true" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="151.0">
+         <image>
+            <Image url="@../../../../../../../../Users/Alexander/Pictures/MyLockScreen/Sun.jpg" />
+         </image>
+      </ImageView>
+      <ProgressBar blendMode="BLUE" layoutX="146.0" layoutY="251.0" prefHeight="18.0" prefWidth="103.0" progress="1.0" style="-fx-background-color: #0c0; -fx-border-color: #0F0;" AnchorPane.bottomAnchor="132.0" AnchorPane.leftAnchor="146.0" />
+      <ImageView fitHeight="163.0" fitWidth="92.0" layoutX="377.0" layoutY="88.0" pickOnBounds="true" AnchorPane.bottomAnchor="150.0" AnchorPane.rightAnchor="153.0">
+         <image>
+            <Image url="@../../../../../../../../Users/Alexander/Pictures/MyLockScreen/moon_clouds_sky_black-and-white_6442_3840x2160.jpg" />
+         </image>
+      </ImageView>
+      <ProgressBar blendMode="GREEN" layoutX="377.0" layoutY="251.0" prefHeight="18.0" prefWidth="92.0" progress="1.0" AnchorPane.bottomAnchor="132.0" AnchorPane.rightAnchor="153.0" />
+      <Button layoutX="158.0" layoutY="349.0" mnemonicParsing="false" text="Attack" />
+      <Button layoutX="232.0" layoutY="349.0" mnemonicParsing="false" text="Special Attack" />
+      <Button layoutX="340.0" layoutY="349.0" mnemonicParsing="false" text="Heal" />
+      <Button layoutX="397.0" layoutY="349.0" mnemonicParsing="false" text="Items" />
+      <TextField alignment="CENTER" layoutX="480.0" layoutY="116.0" promptText="ewoiewoifme" />
+   </children>
+</AnchorPane>

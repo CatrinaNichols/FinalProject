@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="gameLayout" onKeyPressed="#handle" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Map">
+   <children>
+      <AnchorPane fx:id="anchor" prefHeight="200.0" prefWidth="200.0" StackPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="mapImage" fitHeight="401.0" fitWidth="610.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <GridPane fx:id="mapLayout" alignment="CENTER" gridLinesVisible="true" layoutX="136.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="327.0" prefWidth="370.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="116.0" AnchorPane.topAnchor="0.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <Label fx:id="commands" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="324.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="370.0" style="-fx-background-color: #800; -fx-border-color: #000;" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="113.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="map" alignment="CENTER" layoutX="-2.0" layoutY="101.0" prefHeight="203.0" prefWidth="143.0" style="-fx-background-color: #800; -fx-border-color: #000;" text="Map/Enemy Stats" textFill="WHITE" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="101.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="mapName" alignment="CENTER" layoutX="-2.0" prefHeight="104.0" prefWidth="143.0" style="-fx-background-color: #800; -fx-border-color: #000;" text="NPCName/MapName" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Label fx:id="characterInfo" alignment="CENTER" layoutY="304.0" prefHeight="104.0" prefWidth="143.0" style="-fx-background-color: #800; -fx-border-color: #000;" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="stats" alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="-1.0" prefHeight="406.0" prefWidth="156.0" style="-fx-background-color: #800; -fx-border-color: #000;" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Button fx:id="exit" alignment="CENTER" layoutX="6.0" layoutY="341.0" mnemonicParsing="false" onAction="#changeScreenButtonPushed" prefHeight="23.0" prefWidth="100.0" style="-fx-background-color: #800;" text="Exit To Menu" textFill="WHITE" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="6.0">
+               <font>
+                  <Font name="Georgia Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="desktopExit" alignment="CENTER" layoutX="6.0" layoutY="363.0" mnemonicParsing="false" onAction="#exitApp" prefHeight="29.0" prefWidth="116.0" style="-fx-background-color: #800;" text="Exit To Desktop" textFill="WHITE" AnchorPane.bottomAnchor="12.0">
+               <font>
+                  <Font name="Georgia Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="up" layoutX="166.0" layoutY="351.0" mnemonicParsing="false" onAction="#upButtonMovement" prefHeight="25.0" prefWidth="41.0" text="Up" AnchorPane.bottomAnchor="30.0" />
+            <Button fx:id="down" layoutX="236.0" layoutY="351.0" mnemonicParsing="false" onAction="#downButtonMovement" prefHeight="25.0" prefWidth="51.0" text="Down" AnchorPane.bottomAnchor="28.0" />
+            <Button fx:id="left" layoutX="309.0" layoutY="352.0" mnemonicParsing="false" onAction="#leftButtonMovement" prefHeight="25.0" prefWidth="51.0" text="Left" AnchorPane.bottomAnchor="27.0" />
+            <Button fx:id="right" layoutX="387.0" layoutY="351.0" mnemonicParsing="false" onAction="#rightButtonMovement" prefHeight="25.0" prefWidth="51.0" text="Right" AnchorPane.bottomAnchor="28.0" />
+            <Button fx:id="save" layoutX="6.0" layoutY="312.0" mnemonicParsing="false" onAction="#saveGame" style="-fx-background-color: #800;" text="Save" textFill="WHITE" AnchorPane.bottomAnchor="62.0">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="load" layoutX="51.0" layoutY="312.0" mnemonicParsing="false" onAction="#loadGame" style="-fx-background-color: #800;" text="Load" textFill="WHITE" AnchorPane.bottomAnchor="62.0">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Label fx:id="hp" layoutX="492.0" layoutY="92.0" prefHeight="25.0" prefWidth="92.0" text="HP: 500/500" textFill="WHITE" AnchorPane.rightAnchor="31.0" />
+            <Label fx:id="mana" layoutX="491.0" layoutY="121.0" prefHeight="23.0" prefWidth="106.0" text="Mana: 500/500" textFill="WHITE" AnchorPane.rightAnchor="31.0" />
+            <Label fx:id="characterClass" alignment="CENTER" layoutX="476.0" layoutY="39.0" prefHeight="53.0" prefWidth="136.0" text="Character Class" textFill="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="strength" layoutX="491.0" layoutY="144.0" prefHeight="25.0" prefWidth="106.0" text="Strength: 500/500" textFill="WHITE" AnchorPane.rightAnchor="31.0" />
+            <Label fx:id="dexterity" layoutX="489.0" layoutY="169.0" prefHeight="23.0" prefWidth="97.0" text="Dexterity: 500/500" textFill="WHITE" AnchorPane.rightAnchor="31.0" />
+            <Label fx:id="armorReduction" layoutX="486.0" layoutY="194.0" prefHeight="20.0" prefWidth="97.0" text="Armor Reduction" textFill="WHITE" AnchorPane.rightAnchor="31.0" />
+            <Label fx:id="weapon" layoutX="485.0" layoutY="214.0" prefHeight="25.0" prefWidth="106.0" text="Weapon: " textFill="WHITE" AnchorPane.rightAnchor="31.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

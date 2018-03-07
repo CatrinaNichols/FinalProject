@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 
 public class Map implements EventHandler<KeyEvent>{
@@ -163,6 +164,25 @@ public class Map implements EventHandler<KeyEvent>{
 	public void loadGame(ActionEvent event) {
 		Mechanics.load();
 	}
+	
+	@FXML
+	public void attack(ActionEvent event) {
+//		String playerMove = "attack";
+//		control(playerMove);
+	}
+	
+	@FXML
+	public void specialAttack(ActionEvent event) {
+//		String playerMove = "Special Attack";
+	}
+	
+	@FXML
+	public void item(ActionEvent event) {
+//		HBox itemHolder = new HBox();
+	}
+	
+	
+	
 	
 	@FXML
 	public void changeScreenButtonPushed(ActionEvent event) throws IOException {		
