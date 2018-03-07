@@ -1,6 +1,6 @@
 package itemModels;
 
-import characterModels.Character;
+import characterModels.BaseCharacter;
 import enums.DamagingItems;
 import interfaces.Iconsumable;
 
@@ -23,7 +23,7 @@ public class DamagingItem extends Item  implements Iconsumable{
 		name = type.getName();
 	}
 	@Override
-	public void use(Character c) {
+	public void use(BaseCharacter c) {
 		c.takeDamage(damagePower);
 	}
 

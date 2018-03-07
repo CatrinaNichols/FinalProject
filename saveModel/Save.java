@@ -8,6 +8,10 @@ import characterModels.Hero;
 import itemModels.Item;
 
 public class Save implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Hero hero;
 	private ArrayList<Item> inventory;
 	private BaseCharacter[][] map;

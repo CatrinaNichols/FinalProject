@@ -1,8 +1,8 @@
 package itemModels;
 
+import characterModels.BaseCharacter;
 import enums.HealingItems;
 import interfaces.Iconsumable;
-import characterModels.Character;
 
 public class HealingItem extends Item implements Iconsumable {
 
@@ -34,7 +34,7 @@ public class HealingItem extends Item implements Iconsumable {
 	}
 
 	@Override
-	public void use(Character c) {
+	public void use(BaseCharacter c) {
 		c.heal(healPower, type.getHealType());
 
 	}

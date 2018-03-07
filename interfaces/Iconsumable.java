@@ -1,8 +1,10 @@
 package interfaces;
-import characterModels.Character;
+
+import characterModels.BaseCharacter;
+
 public interface Iconsumable {
 	
-	void use(Character c);
+	void use(BaseCharacter c);
 	
 	String getDescription();
 	

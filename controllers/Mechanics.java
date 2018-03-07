@@ -31,7 +31,9 @@ public class Mechanics {
 	static int x = 0;
 	static int y = 0;
 
-	public void newGame(String name, String proffession) {
+	public static void newGame() {
+		String name = "placeholder";
+		String proffession = "warrior";
 		switch (proffession) {
 		case "warrior":
 			hero = new Hero(name, HeroClass.WARRIOR, 1);
@@ -127,11 +129,18 @@ public class Mechanics {
 			hero.levelUp(monster.getXp());
 		}
 	}
-	
+
+	public void takeTurn(BaseCharacter attacker, BaseCharacter defender) {
+		if (attacker instanceof Hero) {
+			// add in menu for hero's turn
+		} else {
+			attacker.attack(defender);
+		}
+	}
+
 	public static void dropLoot(Monster monster) {
 		// Determine what to drop based on monster
 		// place item in player inventory
-		ArrayList<Item> drop = new ArrayList<>();
 		Random rand = new Random();
 		int num;
 		for(int i = 0; i < 10; i++) {
@@ -196,36 +205,40 @@ public class Mechanics {
 		}
 		return message;
 	}
-	
+
 	public void move(String action) {
 		switch (action) {
 		case "up":
-			if (y - 1 < 0) {} 
-			else {
+			if (y - 1 < 0) {
+				System.out.println("Can't move in that direction");
+			} else {
 				map[y][x] = null;
 				y--;
 				map[y][x] = hero;
 			}
 			break;
 		case "down":
-			if (y + 1 >= map.length) {} 
-			else {
+			if (y + 1 >= map.length) {
+				System.out.println("Can't move in that direction");
+			} else {
 				map[y][x] = null;
 				y++;
 				map[y][x] = hero;
 			}
 			break;
 		case "left":
-			if (x - 1 < 0) {} 
-			else {
+			if (x - 1 < 0) {
+				System.out.println("Can't move in that direction");
+			} else {
 				map[y][x] = null;
 				x--;
 				map[y][x] = hero;
 			}
 			break;
 		case "right":
-			if (x + 1 >= map[y].length) {} 
-			else {
+			if (x + 1 >= map[y].length) {
+				System.out.println("Can't move in that direction");
+			} else {
 				map[y][x] = null;
 				x++;
 				map[y][x] = hero;
@@ -235,20 +248,23 @@ public class Mechanics {
 
 	}
 
-	public void engine(String action, int inventory, String choice) {
-		switch (action) {
-		case "save":
-			save();
-			break;
-		case "load":
-			load();
-			break;
-		case "inventory":
-			inventoryManagement(inventory, choice);
-			break;
-		case "move":
-			move(choice);
-			break;
-		}
-	}
+//	public void engine(String action, int inventory, String choice) {
+//		switch (action) {
+//		case "save":
+//			save();
+//			break;
+//		case "load":
+//			load();
+//			break;
+//		case "inventory":
+//			inventoryManagement(inventory, choice);
+//			break;
+//		case "move":
+//			move(choice);
+//			break;
+//		case "newGame":
+//			newGame();
+//			break;
+//		}
+//	}
 }
