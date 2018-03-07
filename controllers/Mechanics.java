@@ -14,6 +14,7 @@ import characterModels.BaseCharacter;
 import characterModels.Hero;
 import characterModels.Monster;
 import enums.HeroClass;
+import enums.MonsterTypes;
 import itemModels.Armor;
 import itemModels.DamagingItem;
 import itemModels.HealingItem;
@@ -25,13 +26,12 @@ public class Mechanics {
 	static BaseCharacter[][] map;
 	static ArrayList<Item> inventory = new ArrayList<>();
 	static Hero hero;
+	static Monster monster;
 	// Coordinates for current location
 	static int x = 0;
 	static int y = 0;
 
-	public static void newGame() {
-		String name = "placeholder";
-		String proffession = "warrior";
+	public void newGame(String name, String proffession) {
 		switch (proffession) {
 		case "warrior":
 			hero = new Hero(name, HeroClass.WARRIOR, 1);
@@ -93,14 +93,16 @@ public class Mechanics {
 	public void combat() {
 		boolean battle = true;
 		boolean heroTurn = false;
+		
+		monster = new Monster(MonsterTypes.PLAINS_GOBLIN_S, 1);
 
-		if (inPlains) {
-			PlainMonster monster = new PlainMonster();
-		} else if (inCave) {
-			CaveMonster monster = new CaveMonster();
-		} else if (inCastle) {
-			CastleMonster monster = new CastleMonster();
-		}
+//		if (map) {
+//			PlainMonster monster = new PlainMonster();
+//		} else if (inCave) {
+//			CaveMonster monster = new CaveMonster();
+//		} else if (inCastle) {
+//			CastleMonster monster = new CastleMonster();
+//		}
 
 		if (hero.getBaseDex() > monster.getBaseDex()) {
 			heroTurn = true;
@@ -108,27 +110,34 @@ public class Mechanics {
 
 		do {
 			if (heroTurn) {
-				takeTurn(hero, monster);
+				//takeTurn();
 				heroTurn = false;
 			} else {
-				takeTurn(monster, hero);
+				monster.attack(hero);
 				heroTurn = true;
 			}
 
 			if (hero.getHP() == 0) {
 				battle = false;
-			} else if (monster.getHPHP() == 0) {
+			} else if (monster.getHP() == 0) {
 				dropLoot(monster);
+				hero.levelUp(monster.getXp());
 				battle = false;
 			}
 		} while (!battle);
 	}
 
-	public void takeTurn(BaseCharacter attacker, BaseCharacter defender) {
-		if (attacker instanceof Hero) {
-			// add in menu for hero's turn
-		} else {
-			attacker.attack(defender);
+	public void takeTurn(String input) {
+		switch(input) {
+		case "attack":
+			hero.attack(monster);
+			break;
+		case "specialAttack":
+			hero.specialAttack(monster);
+			break;
+		case "item":
+			//inventoryManagement();
+			break;
 		}
 	}
 
@@ -175,7 +184,7 @@ public class Mechanics {
 		// Give player option to discard loot
 		// show all loot available
 		// Equipment of items
-		String message;
+		String message = "";
 		if (choice.equals("equip")) {
 			if (inventory.get(itemInInventory) instanceof Armor) {
 				hero.setEquippedArmor((Armor)inventory.get(itemInInventory));
@@ -200,40 +209,36 @@ public class Mechanics {
 		}
 		return message;
 	}
-
+	
 	public void move(String action) {
 		switch (action) {
 		case "up":
-			if (y - 1 < 0) {
-				System.out.println("Can't move in that direction");
-			} else {
+			if (y - 1 < 0) {} 
+			else {
 				map[y][x] = null;
 				y--;
 				map[y][x] = hero;
 			}
 			break;
 		case "down":
-			if (y + 1 >= map.length) {
-				System.out.println("Can't move in that direction");
-			} else {
+			if (y + 1 >= map.length) {} 
+			else {
 				map[y][x] = null;
 				y++;
 				map[y][x] = hero;
 			}
 			break;
 		case "left":
-			if (x - 1 < 0) {
-				System.out.println("Can't move in that direction");
-			} else {
+			if (x - 1 < 0) {} 
+			else {
 				map[y][x] = null;
 				x--;
 				map[y][x] = hero;
 			}
 			break;
 		case "right":
-			if (x + 1 >= map[y].length) {
-				System.out.println("Can't move in that direction");
-			} else {
+			if (x + 1 >= map[y].length) {} 
+			else {
 				map[y][x] = null;
 				x++;
 				map[y][x] = hero;
@@ -256,9 +261,6 @@ public class Mechanics {
 			break;
 		case "move":
 			move(choice);
-			break;
-		case "newGame":
-			newGame();
 			break;
 		}
 	}
