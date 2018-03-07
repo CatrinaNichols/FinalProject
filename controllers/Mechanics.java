@@ -90,10 +90,7 @@ public class Mechanics {
 
 	}
 
-	public void combat() {
-		boolean battle = true;
-		boolean heroTurn = false;
-		
+	public static void combat(String input) {
 		monster = new Monster(MonsterTypes.PLAINS_GOBLIN_S, 1);
 
 //		if (map) {
@@ -104,30 +101,7 @@ public class Mechanics {
 //			CastleMonster monster = new CastleMonster();
 //		}
 
-		if (hero.getBaseDex() > monster.getBaseDex()) {
-			heroTurn = true;
-		}
 
-		do {
-			if (heroTurn) {
-				//takeTurn();
-				heroTurn = false;
-			} else {
-				monster.attack(hero);
-				heroTurn = true;
-			}
-
-			if (hero.getHP() == 0) {
-				battle = false;
-			} else if (monster.getHP() == 0) {
-				dropLoot(monster);
-				hero.levelUp(monster.getXp());
-				battle = false;
-			}
-		} while (!battle);
-	}
-
-	public void takeTurn(String input) {
 		switch(input) {
 		case "attack":
 			hero.attack(monster);
@@ -139,9 +113,22 @@ public class Mechanics {
 			//inventoryManagement();
 			break;
 		}
+		monster.attack(hero);
+		
+		combatResult();
 	}
 
-	public void dropLoot(Monster monster) {
+	public static void combatResult() {
+		if(!hero.getIsAlive()) {
+			//game over
+		} else if(!monster.getIsAlive()) {
+			//monster removed from map
+			dropLoot(monster);
+			hero.levelUp(monster.getXp());
+		}
+	}
+	
+	public static void dropLoot(Monster monster) {
 		// Determine what to drop based on monster
 		// place item in player inventory
 		ArrayList<Item> drop = new ArrayList<>();
