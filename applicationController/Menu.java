@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 
+import controllers.Mechanics;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -18,30 +19,31 @@ import javafx.stage.Stage;
 public class Menu extends Application {
 
 	private Stage stage;
-	private Scene scene;
+	
+	private static Scene scene;
 
 	@FXML
 	private StackPane mainLayout;
 
 	@FXML
 	private ImageView backgroundImage;
-	
+
 	@FXML
 	private Button saveGame;
-	
+
 	@FXML
 	private Button loadGame;
-	
+
 	@FXML
 	private Button Exit;
-	
+
 	@FXML
 	private Label Title;
-	
+
 	@FXML
 	private Button newGame;
-	
-	
+
+
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -51,7 +53,6 @@ public class Menu extends Application {
 		this.stage = stage;
 		this.stage.setTitle("Seven Trials");
 		mainMenu();
-		
 	}
 
 	@FXML
@@ -59,7 +60,7 @@ public class Menu extends Application {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Menu.class.getResource("view/MenuView.fxml"));
 		loader.setController(this);
-
+		mainLayout = new StackPane();
 		mainLayout = loader.load();
 		scene = new Scene(mainLayout);
 		resize();
@@ -69,13 +70,21 @@ public class Menu extends Application {
 
 	@FXML
 	public void changeScreenButtonPushed(ActionEvent event) throws IOException {
-		StackPane mapView =  FXMLLoader.load(getClass().getResource("view/MapView.fxml"));
-		
-		Scene map = new Scene(mapView, scene.getWidth(), scene.getHeight());
-		
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Menu.class.getResource("view/MapView.fxml"));
+
+		StackPane mapView = loader.load();
+		Scene map = new Scene(mapView, scene.getWidth(),scene.getHeight());
+		((Map) loader.getController()).setScene(map);
+
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		window.setScene(map);
 		window.show();
+	}
+	
+	@FXML
+	public void loadGame(ActionEvent event) {
+		Mechanics.load();
 	}
 
 	@FXML
@@ -86,8 +95,11 @@ public class Menu extends Application {
 
 	@FXML
 	void resize() {
-		backgroundImage.fitWidthProperty().bind(mainLayout.widthProperty());
-		backgroundImage.fitHeightProperty().bind(mainLayout.heightProperty());
+//		backgroundImage.fitWidthProperty().bind(mainLayout.widthProperty());
+//		backgroundImage.fitHeightProperty().bind(mainLayout.heightProperty());
+//		saveGame.prefWidthProperty().bind(mainLayout.widthProperty().subtract(10));
+//		loadGame.prefWidthProperty().bind(mainLayout.widthProperty().subtract(10));
+//		Exit.prefWidthProperty().bind(mainLayout.widthProperty().subtract(10));
 	}
 
 }

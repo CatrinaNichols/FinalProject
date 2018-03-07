@@ -15,34 +15,34 @@ public class Battle extends Application{
 
 	private Stage stage;
 	private Scene scene;
-	
-	  @FXML
-	    private ImageView mapImage1;
 
-	    @FXML
-	    private Label Commands1;
+	@FXML
+	private ImageView mapImage1;
 
-	    @FXML
-	    private Label Map1;
+	@FXML
+	private Label Commands1;
 
-	    @FXML
-	    private Label MapName1;
+	@FXML
+	private Label Map1;
 
-	    @FXML
-	    private Label CharacterInfo1;
+	@FXML
+	private Label MapName1;
 
-	    @FXML
-	    private Label Stats1;
+	@FXML
+	private Label CharacterInfo1;
 
-	    @FXML
-	    private AnchorPane battleScreen;
+	@FXML
+	private Label Stats1;
+
+	@FXML
+	private AnchorPane battleScreen;
 
 
 	@Override
 	public void start(Stage stage) throws Exception {
 		this.stage = stage;
 		this.stage.setTitle("Seven Trials");
-		
+
 	}
 
 	@FXML
@@ -50,7 +50,7 @@ public class Battle extends Application{
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Menu.class.getResource("view/BattleView.fxml"));
 		loader.setController(this);
-		
+
 		battleScreen = loader.load();
 		scene = new Scene(battleScreen);
 		stage.setScene(scene);

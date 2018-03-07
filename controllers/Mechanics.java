@@ -1,5 +1,6 @@
 package controllers;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,20 +10,26 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
-import characterModels.*;
-import itemModels.*;
-import enums.*;
+import characterModels.BaseCharacter;
+import characterModels.Hero;
+import characterModels.Monster;
+import enums.HeroClass;
+import itemModels.Armor;
+import itemModels.DamagingItem;
+import itemModels.HealingItem;
+import itemModels.Item;
+import itemModels.Weapon;
 import saveModel.Save;
 
 public class Mechanics {
-	BaseCharacter[][] map;
-	ArrayList<Item> inventory = new ArrayList<>();
-	Hero hero;
+	static BaseCharacter[][] map;
+	static ArrayList<Item> inventory = new ArrayList<>();
+	static Hero hero;
 	// Coordinates for current location
-	int x = 0;
-	int y = 0;
+	static int x = 0;
+	static int y = 0;
 
-	public void newGame() {
+	public static void newGame() {
 		String name = "placeholder";
 		String proffession = "warrior";
 		switch (proffession) {
@@ -39,12 +46,14 @@ public class Mechanics {
 
 	}
 
-	public void save() {
-		String filePath = "saves/saveFile.ser";
-		// Character location
-		// Character inventory
-		// Story progression
-
+	public static void save() {
+		File filePath = new File("saves/saveFile.ser");		
+		try {
+			File parent = filePath.getParentFile();
+			parent.mkdir();
+			parent.createNewFile();
+		} catch (FileNotFoundException f) {}
+		catch(IOException e) {}
 		FileOutputStream fos;
 		try {
 			fos = new FileOutputStream(filePath);
@@ -54,21 +63,13 @@ public class Mechanics {
 			oos.close();
 			fos.close();
 
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} catch (FileNotFoundException e) {}
+		catch (IOException e) {}
 
 	}
 
-	public void load() {
+	public static void load() {
 		String filePath = "saves/saveFile.ser";
-		// Update character location
-		// Update inventory
-		// Update story progression
 		FileInputStream fis;
 		try {
 			fis = new FileInputStream(filePath);
@@ -83,14 +84,8 @@ public class Mechanics {
 			x = save.getX();
 			y = save.getY();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 
 	}
