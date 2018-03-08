@@ -6,7 +6,7 @@ import enums.Weapons;
 import itemModels.Armor;
 import itemModels.Weapon;
 
-public class Hero extends Character {
+public class Hero extends BaseCharacter {
 
 	private final HeroClass profession;
 	private Weapon equippedWeapon;
@@ -138,7 +138,7 @@ public class Hero extends Character {
 	}
 
 	@Override
-	public boolean attack(Character c) {
+	public boolean attack(BaseCharacter c) {
 		int toHitRoll = rng.nextInt(19) + 1;
 		toHitRoll += (baseDex - 10) / 2;
 		if(toHitRoll > c.getDodge()) {
@@ -151,7 +151,7 @@ public class Hero extends Character {
 
 	//message ui not enough mp???
 	@Override
-	public boolean specialAttack(Character c) {
+	public boolean specialAttack(BaseCharacter c) {
 		if(mp >= 10) {
 			mp -= 10;
 			int toHitRoll = rng.nextInt(19) + 1;
