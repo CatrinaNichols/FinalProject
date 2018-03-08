@@ -21,7 +21,6 @@ public class Monster extends BaseCharacter {
 	@Override
 	public void takeDamage(int damage) {
 		int damageTaken = (damage * (100 - monster.getArmorValue())) / 100;
-		if (monster == MonsterTypes.FINAL_BOSS) damageTaken = this.maxHp;
 		hp -= damageTaken;
 		// name + " took " + damageTaken + "points of damage!"
 		if (hp <= 0) {
