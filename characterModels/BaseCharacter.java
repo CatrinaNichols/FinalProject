@@ -3,6 +3,7 @@ package characterModels;
 import java.util.Random;
 
 public abstract class BaseCharacter {
+	
 	protected String name;
 	protected int baseStr;
 	protected int baseDex;
