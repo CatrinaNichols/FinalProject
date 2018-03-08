@@ -29,18 +29,6 @@ public abstract class BaseCharacter {
 		
 	}
 	
-	public int getBaseDex() {
-		return this.baseDex;
-	}
-	
-	public int getHP() {
-		return this.hp;
-	}
-	
-	public int getLevel() {
-		return this.level;
-	}
-	
 	public abstract void levelUp(int xp);
 	
 	public abstract void takeDamage(int damage);
@@ -59,17 +47,23 @@ public abstract class BaseCharacter {
 		return 0;
 	}
 	
-	public boolean getIsAlive() {
-		return isAlive;
-	}
-	
 	public String getName() {
 		return name;
 	}
-
+	
 	public int getHp() {
 		return hp;
 	}
-	
 
+	public int getBaseDex() {
+		return baseDex;
+	}
+
+	public boolean isAlive() {
+		return isAlive;
+	}
+
+	public int getLevel() {
+		return level;
+	}
 }
