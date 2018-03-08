@@ -12,7 +12,7 @@ public class Hero extends BaseCharacter {
 	private Weapon equippedWeapon;
 	private Armor equippedArmor;
 	
-
+	//This should work
 	@Override
 	public void levelUp(int xp) {
 		this.xp += xp;
