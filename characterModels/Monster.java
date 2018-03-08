@@ -2,7 +2,7 @@ package characterModels;
 
 import enums.MonsterTypes;
 
-public class Monster extends Character {
+public class Monster extends BaseCharacter {
 
 	private final MonsterTypes monster;
 
@@ -21,7 +21,6 @@ public class Monster extends Character {
 	@Override
 	public void takeDamage(int damage) {
 		int damageTaken = (damage * (100 - monster.getArmorValue())) / 100;
-		if (monster == MonsterTypes.FINAL_BOSS) damageTaken = this.maxHp;
 		hp -= damageTaken;
 		// name + " took " + damageTaken + "points of damage!"
 		if (hp <= 0) {
@@ -35,7 +34,7 @@ public class Monster extends Character {
 	}
 
 	@Override
-	public boolean attack(Character c) {
+	public boolean attack(BaseCharacter c) {
 		int toHitRoll = rng.nextInt(19) + 1;
 		toHitRoll += monster.getBaseToHit() + (level / 2);
 		if (toHitRoll > c.getDodge()) {
@@ -48,7 +47,7 @@ public class Monster extends Character {
 
 	// message ui not enough mp???
 	@Override
-	public boolean specialAttack(Character c) {
+	public boolean specialAttack(BaseCharacter c) {
 		int toHitRoll = rng.nextInt(19) + 1;
 		toHitRoll += monster.getBaseToHit() + (level);
 		if (toHitRoll > c.getDodge()) {
