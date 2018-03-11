@@ -1,10 +1,12 @@
 package itemModels;
 
+import java.io.Serializable;
+
 import characterModels.BaseCharacter;
 import enums.HealingItems;
 import interfaces.Iconsumable;
 
-public class HealingItem extends Item implements Iconsumable {
+public class HealingItem extends Item implements Iconsumable, Serializable {
 
 	private int healPower;
 	private HealingItems type;
