@@ -116,7 +116,6 @@ public class Map implements EventHandler<KeyEvent>{
 	@FXML
 	private ImageView enemy4;
 
-	
 	@FXML
 	private Label level;
 
@@ -191,10 +190,11 @@ public class Map implements EventHandler<KeyEvent>{
 				loader.setLocation(Map.class.getResource("view/BattleView.fxml"));
 
 				Battle battle = new Battle(Mechanics.getHero(), enemyLocater.get(enemy), anchor);
-
-				mapLayout.getChildren().remove(enemy);
+				key = enemy; 
 				
-				key = enemy;
+				if(!enemyLocater.get(key).getIsAlive()) {
+					mapLayout.getChildren().remove(enemy);										
+				}
 				
 				loader.setController(battle);
 				StackPane battleView = null;
@@ -205,7 +205,8 @@ public class Map implements EventHandler<KeyEvent>{
 				gameLayout.getChildren().add(battleView);
 			}
 		}
-		if(key !=null) {
+//			if()
+		if(key !=null && !enemyLocater.get(key).getIsAlive()) {
 			enemyLocater.remove(key);			
 			enemies.remove(key);
 		}
@@ -229,7 +230,8 @@ public class Map implements EventHandler<KeyEvent>{
 		Mechanics.load();
 	}
 
-
+	
+	
 	@FXML
 	public void changeScreenButtonPushed(ActionEvent event) throws IOException {		
 		FXMLLoader loader = new FXMLLoader();
@@ -321,7 +323,6 @@ public class Map implements EventHandler<KeyEvent>{
 		dexterity.setText("Dexterity: " + Mechanics.getHero().getBaseDex());
 		strength.setText("Strength: " + Mechanics.getHero().getBaseStrength());
 		weapon.setText("Weapon: " + Mechanics.getHero().getEquippedWeapon());
-		
 	}
 	
 	public void setScene(Scene scene){

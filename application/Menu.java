@@ -170,8 +170,9 @@ public class Menu extends Application {
 		StackPane mapView = loader.load();
 		Scene map = new Scene(mapView, scene.getWidth(),scene.getHeight());
 		((Map) loader.getController()).setScene(map);
-
+		
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		
 		window.setScene(map);
 		window.show();
 	}

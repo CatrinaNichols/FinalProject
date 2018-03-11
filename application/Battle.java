@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 
+import characterModels.BaseCharacter;
 import characterModels.Hero;
 import characterModels.Monster;
 import controllers.Mechanics;
@@ -49,6 +50,15 @@ public class Battle extends Application{
 
     @FXML
     private Label stats;
+
+    @FXML
+    private Label enemyLevel;
+
+    @FXML
+    private Label enemyStrength;
+
+    @FXML
+    private Label enemyHpLabel;
 
     @FXML
     private Button exitMenu;
@@ -140,7 +150,7 @@ public class Battle extends Application{
 		Mechanics.combat(playerMove, getHero(), getMonster());
 		
 		playerHp.setProgress((float)(Mechanics.getHero().getHp()/(float)Mechanics.getHero().getMaxHp()));
-		enemyHp.setProgress((float)monster.getHp()/(float)monster.getMaxHp());
+		enemyHp.setProgress((float)getMonster().getHp()/(float)getMonster().getMaxHp());
 		
 		checkForDeath();
 	}
@@ -150,8 +160,8 @@ public class Battle extends Application{
 		String playerMove = "Special Attack";
 		Mechanics.combat(playerMove, getHero(), getMonster());
 		
-		playerHp.setProgress((double)((double)Mechanics.getHero().getHp()/(double)Mechanics.getHero().getMaxHp()));
-		enemyHp.setProgress((double)((double)monster.getHp()/(double)monster.getMaxHp()));
+		playerHp.setProgress(((double)Mechanics.getHero().getHp()/(double)Mechanics.getHero().getMaxHp()));
+		enemyHp.setProgress(((double)getMonster().getHp()/(double)getMonster().getMaxHp()));
 		
 		checkForDeath();
 	}
@@ -161,7 +171,7 @@ public class Battle extends Application{
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {}
-		if(enemyHp.getProgress() == 0.0) {
+		if(enemyHp.getProgress() <= 0.0) {
 			battleScreen.setVisible(false);
 			anchor.setVisible(true);
 		}
@@ -176,6 +186,8 @@ public class Battle extends Application{
 			} catch (IOException e) {}
 			root.getChildren().clear();
 			root.getChildren().add(mapView);
+			((BaseCharacter) Mechanics.getHero()).setHp(Mechanics.getHero().getMaxHp());
+			Mechanics.getHero().setMp(Mechanics.getHero().getMaxMp());;
 		}		
 	}
 	
