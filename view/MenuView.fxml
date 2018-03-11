@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +18,7 @@
                   <Image url="@../../../forrest.jpg" />
                </image>
             </ImageView>
-            <Button id="New Game Button" fx:id="newGame" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="246.0" mnemonicParsing="false" onAction="#changeScreenButtonPushed" style="-fx-alignment: center;" text="New Game" textAlignment="CENTER" AnchorPane.rightAnchor="313.0">
+            <Button id="New Game Button" fx:id="newGame" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="246.0" mnemonicParsing="false" onAction="#newGameButton" style="-fx-alignment: center;" text="New Game" textAlignment="CENTER" AnchorPane.rightAnchor="313.0">
                <font>
                   <Font size="14.0" />
                </font>
@@ -37,6 +38,10 @@
                   <Font size="31.0" />
                </font>
             </Label>
+            <Button fx:id="archerButton" contentDisplay="CENTER" layoutX="119.0" layoutY="249.0" mnemonicParsing="false" onAction="#archerClass" text="Archer" textAlignment="CENTER" visible="false" />
+            <Button fx:id="warriorButton" alignment="CENTER" contentDisplay="CENTER" layoutX="318.0" layoutY="249.0" mnemonicParsing="false" onAction="#warriorClass" text="Warrior" textAlignment="CENTER" visible="false" />
+            <Button fx:id="wizardButton" alignment="CENTER" contentDisplay="CENTER" layoutX="550.0" layoutY="249.0" mnemonicParsing="false" onAction="#wizardClass" text="Wizard" textAlignment="CENTER" visible="false" />
+            <TextField fx:id="playerName" alignment="CENTER" layoutX="276.0" layoutY="163.0" promptText="Please enter your Character name" visible="false" />
          </children>
       </AnchorPane>
    </children>

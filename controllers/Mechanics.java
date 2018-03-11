@@ -14,41 +14,50 @@ import characterModels.BaseCharacter;
 import characterModels.Hero;
 import characterModels.Monster;
 import enums.HeroClass;
-import enums.MonsterTypes;
 import itemModels.Armor;
 import itemModels.DamagingItem;
 import itemModels.HealingItem;
 import itemModels.Item;
 import itemModels.Weapon;
+import javafx.scene.layout.GridPane;
 import saveModel.Save;
 
 public class Mechanics {
 	static BaseCharacter[][] map;
 	static ArrayList<Item> inventory = new ArrayList<>();
-	static Hero hero;
-	static Monster monster;
+	private static Hero hero;
+
+	Monster monster;
 	// Coordinates for current location
+
+	
+	public static Hero getHero() {
+		return hero;
+	}
+	
+	public static void setHero(Hero hero) {
+		Mechanics.hero = hero;
+	}
+	
 	static int x = 0;
 	static int y = 0;
 
-	public static void newGame() {
-		String name = "placeholder";
-		String proffession = "warrior";
-		switch (proffession) {
+	public static void newGame(String name, String profession) {
+		switch (profession) {
 		case "warrior":
-			hero = new Hero(name, HeroClass.WARRIOR, 1);
+			setHero(new Hero(name, HeroClass.WARRIOR, 1));
 			break;
 		case "ranger":
-			hero = new Hero(name, HeroClass.RANGER, 1);
+			setHero(new Hero(name, HeroClass.RANGER, 1));
 			break;
 		case "wizard":
-			hero = new Hero(name, HeroClass.WIZARD, 1);
+			setHero(new Hero(name, HeroClass.WIZARD, 1));
 			break;
 		}
 
 	}
 
-	public static void save() {
+	public static void save(Hero hero, int x, int y, ArrayList<Item> inventory, GridPane map) {
 		File filePath = new File("saves/saveFile.ser");		
 		try {
 			File parent = filePath.getParentFile();
@@ -60,8 +69,8 @@ public class Mechanics {
 		try {
 			fos = new FileOutputStream(filePath);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			Save save = new Save(hero, inventory, map, x, y);
-			oos.writeObject(save);
+//			Save save = new Save(hero, inventory, map, x, y);
+//			oos.writeObject(save);
 			oos.close();
 			fos.close();
 
@@ -92,23 +101,13 @@ public class Mechanics {
 
 	}
 
-	public static void combat(String input) {
-		monster = new Monster(MonsterTypes.PLAINS_GOBLIN_S, 1);
-
-//		if (map) {
-//			PlainMonster monster = new PlainMonster();
-//		} else if (inCave) {
-//			CaveMonster monster = new CaveMonster();
-//		} else if (inCastle) {
-//			CastleMonster monster = new CastleMonster();
-//		}
-
+	public static void combat(String input, Hero hero, Monster monster) {
 
 		switch(input) {
 		case "attack":
 			hero.attack(monster);
 			break;
-		case "specialAttack":
+		case "Special Attack":
 			hero.specialAttack(monster);
 			break;
 		case "item":
@@ -117,10 +116,10 @@ public class Mechanics {
 		}
 		monster.attack(hero);
 		
-		combatResult();
+		combatResult(hero, monster);
 	}
 
-	public static void combatResult() {
+	public static void combatResult(Hero hero, Monster monster) {
 		if(!hero.getIsAlive()) {
 			//game over
 		} else if(!monster.getIsAlive()) {
@@ -204,48 +203,6 @@ public class Mechanics {
 			message = "You've dropped the item";
 		}
 		return message;
-	}
-
-	public void move(String action) {
-		switch (action) {
-		case "up":
-			if (y - 1 < 0) {
-				System.out.println("Can't move in that direction");
-			} else {
-				map[y][x] = null;
-				y--;
-				map[y][x] = hero;
-			}
-			break;
-		case "down":
-			if (y + 1 >= map.length) {
-				System.out.println("Can't move in that direction");
-			} else {
-				map[y][x] = null;
-				y++;
-				map[y][x] = hero;
-			}
-			break;
-		case "left":
-			if (x - 1 < 0) {
-				System.out.println("Can't move in that direction");
-			} else {
-				map[y][x] = null;
-				x--;
-				map[y][x] = hero;
-			}
-			break;
-		case "right":
-			if (x + 1 >= map[y].length) {
-				System.out.println("Can't move in that direction");
-			} else {
-				map[y][x] = null;
-				x++;
-				map[y][x] = hero;
-			}
-			break;
-		}
-
 	}
 
 //	public void engine(String action, int inventory, String choice) {
