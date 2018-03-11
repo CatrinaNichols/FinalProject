@@ -1,12 +1,14 @@
 package characterModels;
 
+import java.io.Serializable;
+
 import enums.Armors;
 import enums.HeroClass;
 import enums.Weapons;
 import itemModels.Armor;
 import itemModels.Weapon;
 
-public class Hero extends BaseCharacter {
+public class Hero extends BaseCharacter implements Serializable{
 
 	private final HeroClass profession;
 	private Weapon equippedWeapon;
@@ -49,7 +51,7 @@ public class Hero extends BaseCharacter {
 		this.level = level;
 		switch (this.profession.getStartingWeapon()) {
 		case 0:
-			equippedWeapon = new Weapon(Weapons.MACE,this.level);
+			equippedWeapon = new Weapon(Weapons.MACE, this.level);
 			break;
 		case 1:
 			equippedWeapon = new Weapon(Weapons.DAGGER, this.level);
@@ -84,14 +86,9 @@ public class Hero extends BaseCharacter {
 		this.mp = this.maxMp;
 
 	}
-	
 
 	public Weapon getEquippedWeapon() {
 		return equippedWeapon;
-	}
-
-	public HeroClass getProfession() {
-		return profession;
 	}
 
 	public void setEquippedWeapon(Weapon equippedWeapon) {

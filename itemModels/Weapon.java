@@ -1,8 +1,10 @@
 package itemModels;
 
+import java.io.Serializable;
+
 import enums.Weapons;
 
-public class Weapon extends Item {
+public class Weapon extends Item implements Serializable{
 
 	private final Weapons weapon;
 	private int minDam;

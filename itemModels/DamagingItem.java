@@ -1,10 +1,12 @@
 package itemModels;
 
+import java.io.Serializable;
+
 import characterModels.BaseCharacter;
 import enums.DamagingItems;
 import interfaces.Iconsumable;
 
-public class DamagingItem extends Item  implements Iconsumable{
+public class DamagingItem extends Item  implements Iconsumable, Serializable{
 	
 	private int damagePower;
 	private DamagingItems type;

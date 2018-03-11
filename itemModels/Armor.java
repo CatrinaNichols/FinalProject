@@ -1,8 +1,10 @@
 package itemModels;
 
+import java.io.Serializable;
+
 import enums.Armors;
 
-public class Armor extends Item {
+public class Armor extends Item implements Serializable{
 	private int damReduction;
 	private int dexMod;
 	private String armorType;
